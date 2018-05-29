@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-logo {
@@ -22,7 +24,27 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
+.body {
+  padding-top: 50px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown {
+  width: 300px;
+  padding-left: 42%;
+  align-self: center;
+}
+
+.expla {
+  width: 300px;
+  width: 300px;
+  padding-left: 42%;
+  align-self: center;
+}
+
+/* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
