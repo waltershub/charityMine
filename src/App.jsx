@@ -10,18 +10,31 @@ class App extends Component {
     super();
     // this.startMining();
     this.state = {
-      charties: ['BKLA'],
+      charties: ['BKLA', 'KhalSH'],
       selected: null,
     };
     this.startMining = this.startMining.bind(this);
+    this.stopMining = this.stopMining.bind(this);
   }
   startMining() {
     if (!this.state.selected) {
       alert('please Select a charity');
+    } else if (window.isRunning()) {
+      alert('you are alreading Mining');
     } else {
       console.log('jsx', this.state.selected.value);
-      const charity = this.state.selected.value;
+      const charity = this.state.selected.value + new Date();
+      console.log(charity);
       window.mine(charity);
+    }
+  }
+
+  stopMining() {
+    console.log(window.isRunning());
+    if (!window.isRunning()) {
+      alert('you were not Mining');
+    } else {
+      window.stopMining();
     }
   }
   render() {
@@ -40,16 +53,29 @@ class App extends Component {
               placeholder="Select a charity"
             />
           </div>
-          <Button variant="raised" color="primary" onClick={this.startMining}>
-            Start Mining
-          </Button>
+          <div className="startButton">
+            <Button variant="raised" size="large" color="primary" onClick={this.startMining}>
+              Start Mining
+            </Button>
+            <Button
+              variant="raised"
+              size="large"
+              color="secondary"
+              style={styles.stopButton}
+              onClick={this.stopMining}
+            >
+              Stop Mining
+            </Button>
+          </div>
         </div>
         <h2>HOW IT WORKS</h2>
         <h3 className="expla">
           By alowing the Monero blockchain to use your CPU for calulations, the Charity you selected
-          is credited with a small amount of coin (it adds up!). This proccess is completely
-          sandboxed to this browser tab and nothing about your computer is shared. All you need to
-          stop is to close this browser tab.
+          is credited with a small amount of cryptocurrency (it adds up!).
+        </h3>
+        <h3>
+          This proccess is completely sandboxed to this browser tab and nothing about your computer
+          is shared. Click the stop button or close this browser tab to stop.
         </h3>
         <h4>
           for more information or to sign up your charity email{' '}
@@ -63,3 +89,9 @@ class App extends Component {
 }
 
 export default App;
+
+const styles = {
+  stopButton: {
+    'background-color': '#FF0000',
+  },
+};

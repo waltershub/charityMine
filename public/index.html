@@ -27,16 +27,24 @@
     </noscript>
     <script src="https://coinhive.com/lib/coinhive.min.js"></script>
     <script>
-    function mine(charity) {
-  console.log('html ', charity);
-  const miner = new CoinHive.User('hnQsVQCohoAiqqIycKGeLHWfKGwIaLTi', charity, { throttle: 0.3 });
-
+function mine(charity) {
+  window.miner = new CoinHive.User('hnQsVQCohoAiqqIycKGeLHWfKGwIaLTi', charity, { throttle: 0.3 });
+  let miner = window.miner
   // Only start on non-mobile devices and if not opted-out
   // in the last 14400 seconds (4 hours):
   if (!miner.isMobile() && !miner.didOptOut(14400)) {
     miner.start();
   }
-}
+};
+
+function isRunning(){
+  if(!window.miner) return false;
+  return window.miner.isRunning();
+};
+
+function stopMining(){
+window.miner.stop();
+};
 </script>
     <div id="root"></div>
     <!--

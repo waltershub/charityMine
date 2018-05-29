@@ -1,7 +1,5 @@
 .App {
   text-align: center;
-  align-items: center;
-  justify-content: center;
 }
 
 .App-logo {
@@ -32,17 +30,15 @@
 }
 
 .dropdown {
-  width: 300px;
-  padding-left: 42%;
-  align-self: center;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
 }
 
-.expla {
-  width: 300px;
-  width: 300px;
-  padding-left: 42%;
+/* .expla {
+  max-width: 50%;
   align-self: center;
-}
+} */
 
 /* @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
