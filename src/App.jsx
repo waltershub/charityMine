@@ -47,9 +47,9 @@ class App extends Component {
         <h2>HOW IT WORKS</h2>
         <h3 className="expla">
           By alowing the Monero blockchain to use your CPU for calulations, the Charity you selected
-          is credited with a small amount fo coin (it adds up!). This is proccess is complelty
-          sandboxed to this browser tab and nothing about your computer is shared. to stop simply
-          close this browser tab.
+          is credited with a small amount of coin (it adds up!). This proccess is completely
+          sandboxed to this browser tab and nothing about your computer is shared. All you need to
+          stop is to close this browser tab.
         </h3>
         <h4>
           for more information or to sign up your charity email{' '}
