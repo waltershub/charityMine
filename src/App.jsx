@@ -20,7 +20,7 @@ class App extends Component {
     if (!this.state.selected) {
       alert('please Select a charity');
     } else if (window.isRunning()) {
-      alert('you are alreading Mining');
+      alert('you are already Mining');
     } else {
       console.log('jsx', this.state.selected.value);
       const charity = this.state.selected.value + new Date();
