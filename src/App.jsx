@@ -70,8 +70,8 @@ class App extends Component {
         </div>
         <h2>HOW IT WORKS</h2>
         <h3 className="expla">
-          By alowing the Monero blockchain to use your CPU for calulations, the Charity you selected
-          is credited with a small amount of cryptocurrency (it adds up!).
+          By allowing the Monero blockchain to use your CPU for calulations, the Charity you
+          selected is credited with a small amount of cryptocurrency (it adds up!).
         </h3>
         <h3>
           This proccess is completely sandboxed to this browser tab and nothing about your computer
