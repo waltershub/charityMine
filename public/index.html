@@ -45,6 +45,9 @@ function isRunning(){
 function stopMining(){
 window.miner.stop();
 };
+function getHashes(){
+  return window.miner.getTotalHashes()
+}
 </script>
     <div id="root"></div>
     <!--

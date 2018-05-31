@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './manmining.jpg';
+import coin from './monero_gold_front.png';
 import './App.css';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -12,6 +13,8 @@ class App extends Component {
     this.state = {
       charties: ['BKLA', 'KhalSH'],
       selected: null,
+      spinClass: 'coin',
+      totalHashes: 0,
     };
     this.startMining = this.startMining.bind(this);
     this.stopMining = this.stopMining.bind(this);
@@ -26,6 +29,10 @@ class App extends Component {
       const charity = this.state.selected.value + new Date();
       console.log(charity);
       window.mine(charity);
+      this.setState({ spinClass: 'coinSpin' });
+      this.updateHashes = setInterval(() => {
+        this.setState({ totalHashes: this.state.totalHashes + window.getHashes() });
+      }, 3000);
     }
   }
 
@@ -35,6 +42,8 @@ class App extends Component {
       alert('you were not Mining');
     } else {
       window.stopMining();
+      this.setState({ spinClass: 'coin' });
+      clearInterval(this.updateHashes);
     }
   }
   render() {
@@ -68,6 +77,8 @@ class App extends Component {
             </Button>
           </div>
         </div>
+        <img src={coin} className={this.state.spinClass} alt="logo" />
+        <h2>{`Total Hashes: ${this.state.totalHashes}`}</h2>
         <h2>HOW IT WORKS</h2>
         <h3 className="expla">
           By allowing the Monero blockchain to use your CPU for calulations, the Charity you
